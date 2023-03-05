@@ -2,7 +2,7 @@
 
 import sys
 import threading
-5
+
 def compute_height(n, parents):
 
     tree = {}
