@@ -2,11 +2,9 @@
 
 import sys
 import threading
-
-
+5
 def compute_height(n, parents):
-    # Write this function
-    #tiek izveidota vārdnīca, kura uzglabā katra node bērnu sarakstus, un tiek atrasta koka sakne
+
     tree = {}
     rootIndex = 0
     for k in range(n):
@@ -17,9 +15,6 @@ def compute_height(n, parents):
            tree[par].append(k)
         else:
             rootIndex = k
-    #tiek izmantots saraksts, kurš uzglabā sākumā sakni un tās augstumu. vēlāk saraksts tiek papildināts ar 
-    # node indeksiem un to augstumiem, izmantojot iepriekšējo node. paralēli tiek atjaunināts maksimālais koka augstums.
-    #cikls turpinās, kamēr saraksts nav tukšs.
     findBranch = [(rootIndex,1)]
     max_height = 0
     while findBranch:
@@ -32,12 +27,8 @@ def compute_height(n, parents):
         else:
             if height>max_height:
                 max_height=height
-    # Your code here
     return max_height
-
-
 def main():
-    # implement input form keyboard and from files
     letter = input()
     if "F" in letter:
         fileName = input()
@@ -46,12 +37,8 @@ def main():
         with open(f"./test/{fileName}", mode="r") as file:
             number = int(file.readline())
             values = list(map(int, file.readline().split())) 
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
     if "I" in letter:
         number = int(input())
         values = list(map(int, input().split()))
     print(compute_height(number, values))
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
+
